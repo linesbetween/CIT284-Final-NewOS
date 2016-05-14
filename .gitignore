@@ -54,3 +54,5 @@ Debug/CIT284-Final-NewOS.log
 *.obj
 Debug/CIT284-Final-NewOS.pdb
 *.pdb
+*.pdb
+Debug/CIT284-Final-NewOS.ilk

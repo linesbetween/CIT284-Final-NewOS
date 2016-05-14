@@ -9,6 +9,7 @@
 #include <time.h>
 
 #include "dlgType.h"
+#include "DlgMkDir.h"
 #define IDC_EDIT 500
 using namespace std;
 //Define filters for use with File Dialog
@@ -69,6 +70,12 @@ public:
 	afx_msg void OnDirectoryRename();
 	afx_msg void OnDirectoryCurrent();
 	afx_msg void OnDirectoryMove();
+	afx_msg void OnDirectoryDirexe();
+	afx_msg void OnGameBattleoffice();
+	afx_msg void OnGameBrainiac();
+	afx_msg void OnGameHenway();
+
+	void setupStartInfo(STARTUPINFO &, PROCESS_INFORMATION &);
 };
 
 //The message map
@@ -98,6 +105,10 @@ BEGIN_MESSAGE_MAP(CWindow, CFrameWnd)
 	ON_COMMAND(IDM_DIRECTORY_RENAME, &CWindow::OnDirectoryRename)
 	ON_COMMAND(IDM_DIRECTORY_CURRENT, &CWindow::OnDirectoryCurrent)
 	ON_COMMAND(IDM_DIRECTORY_MOVE, &CWindow::OnDirectoryMove)
+	ON_COMMAND(IDM_DIRECTORY_DIREXE, &CWindow::OnDirectoryDirexe)
+	ON_COMMAND(IDM_GAME_BATTLEOFFICE, &CWindow::OnGameBattleoffice)
+	ON_COMMAND(IDM_GAME_BRAINIAC, &CWindow::OnGameBrainiac)
+	ON_COMMAND(IDM_GAME_HENWAY, &CWindow::OnGameHenway)
 END_MESSAGE_MAP()
 
 //Initialize the CApp m_pMainWnd data member
@@ -462,17 +473,24 @@ void CWindow::HandleAbout(){
 	m_edit.SetFocus();
 }
 
+
+/////////////////////////////////////////////////////////////////
+//// Menu -Directoary
+////
 void CWindow::OnDirectoryType()
 {
-	// TODO: Add your command handler code here
+
 	dlgType dlgtype;
 	dlgtype.DoModal();
+
+	m_edit.SetWindowTextW(dlgtype.getTextDisplay());
 }
 
 
 void CWindow::OnDirectoryMkdir()
 {
-	// TODO: Add your command handler code here
+	DlgMkdir dlgMkdir;
+	dlgMkdir.DoModal();
 }
 
 
@@ -517,4 +535,80 @@ void CWindow::OnDirectoryCurrent()
 	// TODO: Add your command handler code here
 }
 
+void CWindow::OnDirectoryDirexe(){
+	STARTUPINFO sui;
+	PROCESS_INFORMATION pi;
 
+	CWindow::setupStartInfo(sui, pi);
+
+	wchar_t LszCommandLine[512] = _T("WinDir");
+	wchar_t* pCommandLine = LszCommandLine;
+	::CreateProcess(NULL, (LPTSTR)pCommandLine, NULL, NULL, FALSE, DETACHED_PROCESS, NULL, NULL, &sui, &pi);
+}
+
+
+void CWindow::OnGameBattleoffice()
+{
+	STARTUPINFO sui;
+	PROCESS_INFORMATION pi;
+	sui.cb = sizeof(STARTUPINFO);
+	sui.lpReserved = 0;
+	sui.lpDesktop = NULL;
+	sui.lpTitle = NULL;
+	sui.dwX = 0;
+	sui.dwY = 0;
+	sui.dwXSize = 0;
+	sui.dwYSize = 0;
+	sui.dwXCountChars = 0;
+	sui.dwYCountChars = 0;
+	sui.dwFillAttribute = 0;
+	sui.dwFlags = 0;
+	sui.wShowWindow = 0;
+	sui.cbReserved2 = 0;
+	sui.lpReserved2 = 0;
+
+	wchar_t LszCommandLine[512] = _T("BattleOffice");
+	wchar_t* pCommandLine = LszCommandLine;
+	::CreateProcess(NULL, (LPTSTR)pCommandLine, NULL, NULL, FALSE, DETACHED_PROCESS, NULL, NULL, &sui, &pi);
+}
+
+void CWindow::OnGameBrainiac(){
+	STARTUPINFO sui;
+	PROCESS_INFORMATION pi;
+	
+	CWindow::setupStartInfo(sui, pi);
+
+	wchar_t LszCommandLine[512] = _T("Brainiac 2");
+	wchar_t* pCommandLine = LszCommandLine;
+	::CreateProcess(NULL, (LPTSTR)pCommandLine, NULL, NULL, FALSE, DETACHED_PROCESS, NULL, NULL, &sui, &pi);
+
+}
+
+void CWindow::OnGameHenway(){
+	STARTUPINFO sui;
+	PROCESS_INFORMATION pi;
+
+	CWindow::setupStartInfo(sui, pi);
+
+	wchar_t LszCommandLine[512] = _T("Henway 2");
+	wchar_t* pCommandLine = LszCommandLine;
+	::CreateProcess(NULL, (LPTSTR)pCommandLine, NULL, NULL, FALSE, DETACHED_PROCESS, NULL, NULL, &sui, &pi);
+}
+
+void CWindow::setupStartInfo(STARTUPINFO & sui, PROCESS_INFORMATION & pi){
+	sui.cb = sizeof(STARTUPINFO);
+	sui.lpReserved = 0;
+	sui.lpDesktop = NULL;
+	sui.lpTitle = NULL;
+	sui.dwX = 0;
+	sui.dwY = 0;
+	sui.dwXSize = 0;
+	sui.dwYSize = 0;
+	sui.dwXCountChars = 0;
+	sui.dwYCountChars = 0;
+	sui.dwFillAttribute = 0;
+	sui.dwFlags = 0;
+	sui.wShowWindow = 0;
+	sui.cbReserved2 = 0;
+	sui.lpReserved2 = 0;
+}

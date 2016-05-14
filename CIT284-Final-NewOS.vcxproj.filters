@@ -24,6 +24,12 @@
     <ClInclude Include="dlgType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DlgCurrent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgMkdir.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="script.rc">
@@ -35,6 +41,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="dlgType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgCurrent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgMkdir.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

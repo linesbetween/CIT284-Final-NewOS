@@ -20,7 +20,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -65,6 +65,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DlgCurrent.h" />
+    <ClInclude Include="DlgMkdir.h" />
     <ClInclude Include="dlgType.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -73,6 +75,8 @@
     <ResourceCompile Include="script.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DlgCurrent.cpp" />
+    <ClCompile Include="DlgMkdir.cpp" />
     <ClCompile Include="dlgType.cpp" />
     <ClCompile Include="menu.cpp" />
   </ItemGroup>
