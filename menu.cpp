@@ -7,6 +7,8 @@
 #include <io.h>
 #include <stdlib.h>
 #include <time.h>
+
+#include "dlgType.h"
 #define IDC_EDIT 500
 using namespace std;
 //Define filters for use with File Dialog
@@ -58,6 +60,15 @@ public:
 	DECLARE_MESSAGE_MAP()
 
 
+	afx_msg void OnDirectoryType();
+	afx_msg void OnDirectoryMkdir();
+	afx_msg void OnDirectoryChdir();
+	afx_msg void OnDirectoryRmdir();
+	afx_msg void OnDirectoryAttrib();
+	afx_msg void OnDirectoryCopy();
+	afx_msg void OnDirectoryRename();
+	afx_msg void OnDirectoryCurrent();
+	afx_msg void OnDirectoryMove();
 };
 
 //The message map
@@ -78,6 +89,15 @@ BEGIN_MESSAGE_MAP(CWindow, CFrameWnd)
 	ON_REGISTERED_MESSAGE(findMessage, FindHelper)
 	ON_COMMAND(IDM_FILE_ABOUT, HandleAbout)
 	ON_WM_MOUSEMOVE() //NO parameter?
+	ON_COMMAND(ID_DIRECTORY_TYPE, &CWindow::OnDirectoryType)
+	ON_COMMAND(IDM_DIRECTORY_MKDIR, &CWindow::OnDirectoryMkdir)
+	ON_COMMAND(ID_DIRECTORY_CHDIR, &CWindow::OnDirectoryChdir)
+	ON_COMMAND(IDM_DIRECTORY_RMDIR, &CWindow::OnDirectoryRmdir)
+	ON_COMMAND(IDM_DIRECTORY_ATTRIB, &CWindow::OnDirectoryAttrib)
+	ON_COMMAND(IDM_DIRECTORY_COPY, &CWindow::OnDirectoryCopy)
+	ON_COMMAND(IDM_DIRECTORY_RENAME, &CWindow::OnDirectoryRename)
+	ON_COMMAND(IDM_DIRECTORY_CURRENT, &CWindow::OnDirectoryCurrent)
+	ON_COMMAND(IDM_DIRECTORY_MOVE, &CWindow::OnDirectoryMove)
 END_MESSAGE_MAP()
 
 //Initialize the CApp m_pMainWnd data member
@@ -97,10 +117,10 @@ UINT CWindow::findMessage = ::RegisterWindowMessage(FINDMSGSTRING); // WHY not i
 
 CWindow::CWindow(){
 	CRect rect;
-	int ans = MessageBox(L"Want to Draw? ", L"Do What?", MB_ICONINFORMATION | MB_YESNO);
-	if (ans == IDYES)
-		Create(NULL, L"Drawing", WS_OVERLAPPEDWINDOW, CRect(150, 100, 450, 400));
-	else{
+	//int ans = MessageBox(L"Want to Draw? ", L"Do What?", MB_ICONINFORMATION | MB_YESNO);
+	//if (ans == IDYES)
+		//Create(NULL, L"Drawing", WS_OVERLAPPEDWINDOW, CRect(150, 100, 450, 400));
+	//else{
 		LoadAccelTable(L"MainAccelTable");
 		Create(NULL, L"New OS", WS_OVERLAPPED | WS_SYSMENU, rectDefault);
 		menu = new CMenu();
@@ -110,7 +130,7 @@ CWindow::CWindow(){
 		GetClientRect(&rect);
 		m_edit.Create(WS_VISIBLE | WS_VSCROLL | WS_HSCROLL | ES_AUTOHSCROLL | ES_MULTILINE | ES_NOHIDESEL, rect, this, IDC_EDIT);
 		m_edit.SetFocus();
-	}
+	//}
 }
 
 void CWindow::OnMouseMove(UINT flag, CPoint mousePos){
@@ -271,7 +291,7 @@ void CWindow::HandlePrint(){
 	char b[10000];
 	unsigned int x = 0;
 	ofstream printer("PRN"); // ?
-	int result = MessageBox(L"Screen File?", L"Print waht?", MB_ICONINFORMATION | MB_YESNO);
+	int result = MessageBox(L"Screen File?", L"Print what?", MB_ICONINFORMATION | MB_YESNO);
 	if (result == IDYES){
 		UINT length = m_edit.GetWindowTextLength();
 		m_edit.GetWindowText((LPTSTR)b, length + 1);
@@ -441,3 +461,60 @@ void CWindow::HandleAbout(){
 	aboutDialog.DoModal();
 	m_edit.SetFocus();
 }
+
+void CWindow::OnDirectoryType()
+{
+	// TODO: Add your command handler code here
+	dlgType dlgtype;
+	dlgtype.DoModal();
+}
+
+
+void CWindow::OnDirectoryMkdir()
+{
+	// TODO: Add your command handler code here
+}
+
+
+void CWindow::OnDirectoryChdir()
+{
+	// TODO: Add your command handler code here
+}
+
+
+void CWindow::OnDirectoryRmdir()
+{
+	// TODO: Add your command handler code here
+}
+
+
+void CWindow::OnDirectoryAttrib()
+{
+	// TODO: Add your command handler code here
+}
+
+
+
+void CWindow::OnDirectoryCopy()
+{
+	// TODO: Add your command handler code here
+}
+
+
+void CWindow::OnDirectoryRename()
+{
+	// TODO: Add your command handler code here
+}
+
+void CWindow::OnDirectoryMove()
+{
+	// TODO: Add your command handler code here
+}
+
+
+void CWindow::OnDirectoryCurrent()
+{
+	// TODO: Add your command handler code here
+}
+
+

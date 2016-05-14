@@ -51,3 +51,6 @@ CIT284-Final-NewOS.sdf
 Debug/vc120.pdb
 *.tlog
 Debug/CIT284-Final-NewOS.log
+*.obj
+Debug/CIT284-Final-NewOS.pdb
+*.pdb
