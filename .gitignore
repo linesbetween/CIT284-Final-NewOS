@@ -45,3 +45,9 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.opensdf
+CIT284-Final-NewOS.sdf
+*.idb
+Debug/vc120.pdb
+*.tlog
+Debug/CIT284-Final-NewOS.log
