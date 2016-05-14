@@ -67,6 +67,8 @@
   <ItemGroup>
     <ClInclude Include="DlgCurrent.h" />
     <ClInclude Include="DlgMkdir.h" />
+    <ClInclude Include="DlgRename.h" />
+    <ClInclude Include="DlgRmdir.h" />
     <ClInclude Include="dlgType.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -77,6 +79,8 @@
   <ItemGroup>
     <ClCompile Include="DlgCurrent.cpp" />
     <ClCompile Include="DlgMkdir.cpp" />
+    <ClCompile Include="DlgRename.cpp" />
+    <ClCompile Include="DlgRmdir.cpp" />
     <ClCompile Include="dlgType.cpp" />
     <ClCompile Include="menu.cpp" />
   </ItemGroup>

@@ -10,6 +10,8 @@
 
 #include "dlgType.h"
 #include "DlgMkDir.h"
+#include "DlgRename.h"
+#include "DlgRmdir.h"
 #define IDC_EDIT 500
 using namespace std;
 //Define filters for use with File Dialog
@@ -502,7 +504,8 @@ void CWindow::OnDirectoryChdir()
 
 void CWindow::OnDirectoryRmdir()
 {
-	// TODO: Add your command handler code here
+	DlgRmdir dlgRmdir;
+	dlgRmdir.DoModal();
 }
 
 
@@ -521,7 +524,8 @@ void CWindow::OnDirectoryCopy()
 
 void CWindow::OnDirectoryRename()
 {
-	// TODO: Add your command handler code here
+	DlgRename dlgRename;
+	dlgRename.DoModal();
 }
 
 void CWindow::OnDirectoryMove()

@@ -30,6 +30,12 @@
     <ClInclude Include="DlgMkdir.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DlgRename.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgRmdir.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="script.rc">
@@ -47,6 +53,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DlgMkdir.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgRename.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgRmdir.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

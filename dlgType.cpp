@@ -47,29 +47,34 @@ void dlgType::OnBnClickedOk()
 	
 	editFilePath.GetWindowTextW(path);	
 
-	try{
-		ifstream file(path.GetString());
-		if (file){
-			//MessageBox(L"File exists", L"Status", MB_OK);
-			while (!file.eof()){
-				getline(file, line);
-				textDisplay += (line + "\r\n");
+	if (path.Right(4) == _T(".txt")){
+
+		try{
+			ifstream file(path.GetString());
+			if (file){
+				//MessageBox(L"File exists", L"Status", MB_OK);
+				while (!file.eof()){
+					getline(file, line);
+					textDisplay += (line + "\r\n");
+				}
+
+			}
+			else {
+				MessageBox(L"File not found", L"Status", MB_OK);
 			}
 
+			file.close();
 		}
-		else {
-			MessageBox(L"File not found", L"Status", MB_OK);
+		catch (...){
+			MessageBox(L"Failed to open file", L"Status", MB_OK);
+			editFilePath.SetFocus();
+			return;
 		}
 
-		file.close();
 	}
-	catch (...){
-		MessageBox(L"Failed to open file", L"Status", MB_OK);
-		editFilePath.SetFocus();
-		return;
+	else {
+		MessageBox(L"Must be a *.txt file", L"Error", MB_OK);
 	}
-
-	
 }
 
 CString dlgType::getTextDisplay(){
